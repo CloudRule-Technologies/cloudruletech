@@ -1,11 +1,11 @@
 import React from "react";
+import Home from "./pages/Home/Home";
 
 const App = () => {
   return (
     <>
-      {/* Example usage here */}
-      <div className="text-5xl text-center bg-amber-200 p-4">Hey Team!!</div>
-      <h1>Hey team its another comment</h1>
+      {/* The Home page is done by Sailesh FS DEV */}
+      <Home />
     </>
   );
 };
