@@ -8,9 +8,10 @@ const App = () => {
 
   return (
     <>
+    <div className="backgound select-none caret-transperent">
       {currentPage === "home" && <Home />}
       {currentPage === "services" && <ServicesPage />}
-      
+      </div>
       {/* Add more pages like this as you build them */}
       {/* {currentPage === "about" && <AboutPage />} */}
     </>
