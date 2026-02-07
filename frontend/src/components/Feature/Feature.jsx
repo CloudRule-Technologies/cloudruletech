@@ -4,7 +4,7 @@ const Feature = () => {
   const features = [
     {
       id: "01",
-      title: "Zero Technical Debt",
+      title: "Empowering technology",
       desc: "We build it right the first time using modern standards, ensuring your code remains clean and maintainable.",
     },
     {

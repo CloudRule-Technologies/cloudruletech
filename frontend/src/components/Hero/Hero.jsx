@@ -1,6 +1,5 @@
 import React from "react";
 // Import the background image from your assets folder
-import HeroBg from "../../assets/hero-bg.jpg"; 
 
 const Hero = () => {
   return (
@@ -8,7 +7,7 @@ const Hero = () => {
       id="home"
       className="relative pt-48 pb-32 px-6 flex items-center justify-center bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.94)), url(${HeroBg})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.94))`,
       }}
     >
       {/* Note: The linear-gradient above acts as an 'overlay' 
@@ -17,7 +16,7 @@ const Hero = () => {
       
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center text-center">
         <span className="text-blue-300 font-bold tracking-widest uppercase text-sm mb-4">
-          Innovate - Scale - Rule
+          Innovate - Scale - Secure
         </span>
         
         <h1 className="text-4xl md:text-7xl font-extrabold leading-tight mb-6 text-white">
