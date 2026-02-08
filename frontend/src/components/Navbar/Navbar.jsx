@@ -34,34 +34,30 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 font-serif text-neutral-300 text-md">
-          <a
-            href=""
+          <button
             onClick={() => navigate("/")}
             className="hover:text-white transition flex items-center gap-2"
           >
             <FaHome /> Home
-          </a>
-          <a
-            href=""
+          </button>
+          <button
             onClick={() => navigate("/services")}
             className="hover:text-white transition flex items-center gap-2"
           >
             <FaServicestack /> Services
-          </a>
-          <a
-            href=""
+          </button>
+          <button
             onClick={() => navigate("/aboutus")}
             className="hover:text-white transition flex items-center gap-2"
           >
             <FaInfoCircle /> About
-          </a>
-          <a
-            href=""
+          </button>
+          <button
             onClick={() => navigate("/contact")}
             className="hover:text-white transition flex items-center gap-2"
           >
             <FaEnvelope /> Contact
-          </a>
+          </button>
         </ul>
 
         {/* Mobile Icon */}

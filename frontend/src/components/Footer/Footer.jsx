@@ -34,9 +34,9 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <li>
-                <a href="#home" className="hover:text-white">
+                <button onClick={()=> navigate('/')} className="hover:text-white">
                   Home
-                </a>
+                </button>
               </li>
               <li>
                 <button
@@ -49,7 +49,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => navigate("/aboutus")}
-                  className="hover:text-white"
+                  className="hover:text-white cursor-pointer"
                 >
                   About
                 </button>
