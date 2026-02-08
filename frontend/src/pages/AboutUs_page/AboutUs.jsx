@@ -7,6 +7,7 @@ import sailendra from "../../assets/Sailendra -Profile.jpeg";
 import sujitha from "../../assets/Sujitha-Profile.jpeg";
 import prakalya from "../../assets/Prakalya-Profile.jpeg";
 import viji from "../../assets/Viji-Profile.png";
+import isac from "../../assets/Isac-Profile.jpeg";
 import { useEffect } from "react";
 
 const AboutUs = () => {
@@ -47,7 +48,7 @@ const AboutUs = () => {
     {
       role: "Fullstack Developer",
       name: "Isac Newton",
-      image: "./public/Isac-Profile.jpeg",
+      image: isac,
       imgStyle: { objectPosition: "50% 15%" },
     },
     { role: "Fullstack Developer", name: "Praveen Sethuvel", image: praveen },
