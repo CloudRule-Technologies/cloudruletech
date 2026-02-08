@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 
-
 const Footer = () => {
   const navigate = useNavigate();
 
@@ -49,7 +48,7 @@ const Footer = () => {
               </li>
               <li>
                 <button
-                  onClick={() => navigate("/")}
+                  onClick={() => navigate("/aboutus")}
                   className="hover:text-white"
                 >
                   About
