@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaBriefcase, FaTimes } from "react-icons/fa";
 
 import {
   FaHome,
@@ -45,6 +45,12 @@ const Navbar = () => {
             className="hover:text-white cursor-pointer transition flex items-center gap-2"
           >
             <FaServicestack /> Services
+          </button>
+          <button
+            onClick={() => navigate("/career")}
+            className="hover:text-white cursor-pointer transition flex items-center gap-2"
+          >
+            <FaBriefcase /> Career
           </button>
           <button
             onClick={() => navigate("/aboutus")}
@@ -95,6 +101,15 @@ const Navbar = () => {
               className="flex items-center gap-3"
             >
               <FaServicestack /> Services
+            </button>
+            <button
+              onClick={() => {
+                setOpen(false);
+                navigate("/career");
+              }}
+              className="flex items-center gap-3"
+            >
+              <FaBriefcase /> Career
             </button>
             <button
               onClick={() => {

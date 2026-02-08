@@ -34,7 +34,10 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <li>
-                <button onClick={()=> navigate('/')} className="hover:text-white cursor-pointer">
+                <button
+                  onClick={() => navigate("/")}
+                  className="hover:text-white cursor-pointer"
+                >
                   Home
                 </button>
               </li>
@@ -44,6 +47,14 @@ const Footer = () => {
                   className="hover:text-white cursor-pointer"
                 >
                   Services
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigate("/career")}
+                  className="hover:text-white cursor-pointer"
+                >
+                  career
                 </button>
               </li>
               <li>
