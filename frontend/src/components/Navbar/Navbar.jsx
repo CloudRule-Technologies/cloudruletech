@@ -14,7 +14,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="select-none caret-transparent fixed z-50 top-0 w-full backdrop-blur-md bg-black/60 border-b border-white/10">
+    <nav className="select-none cursor-pointer caret-transparent fixed z-50 top-0 w-full backdrop-blur-md bg-black/60 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center gap-2 font-bold text-lg text-white">
