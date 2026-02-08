@@ -1,10 +1,11 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import Footer from "../../components/Footer/Footer";
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { BrowserRouter } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
+import { HashRouter } from "react-router-dom";
 
 const mockNavigate = vi.fn();
 
+// Mock useNavigate
 vi.mock("react-router-dom", async () => {
   const actual = await vi.importActual("react-router-dom");
   return {
@@ -20,22 +21,22 @@ describe("Footer Component", () => {
 
   it("renders company name", () => {
     render(
-      <BrowserRouter>
+      <HashRouter>
         <Footer />
-      </BrowserRouter>,
+      </HashRouter>,
     );
-
     expect(screen.getByText(/cloudrule technology/i)).toBeInTheDocument();
   });
 
   it("renders quick links", () => {
     render(
-      <BrowserRouter>
+      <HashRouter>
         <Footer />
-      </BrowserRouter>,
+      </HashRouter>,
     );
 
-    expect(screen.getByRole("link", { name: /home/i })).toBeInTheDocument();
+    // Match the buttons by role and name (works even with icons)
+    expect(screen.getByRole("button", { name: /home/i })).toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: /services/i }),
     ).toBeInTheDocument();
@@ -45,11 +46,11 @@ describe("Footer Component", () => {
     ).toBeInTheDocument();
   });
 
-  it("navigates using buttons", () => {
+  it("navigates using links/buttons", () => {
     render(
-      <BrowserRouter>
+      <HashRouter>
         <Footer />
-      </BrowserRouter>,
+      </HashRouter>,
     );
 
     fireEvent.click(screen.getByRole("button", { name: /services/i }));
@@ -61,11 +62,10 @@ describe("Footer Component", () => {
 
   it("renders current year", () => {
     render(
-      <BrowserRouter>
+      <HashRouter>
         <Footer />
-      </BrowserRouter>,
+      </HashRouter>,
     );
-
     expect(
       screen.getByText(new RegExp(new Date().getFullYear().toString())),
     ).toBeInTheDocument();

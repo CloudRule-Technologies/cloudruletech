@@ -64,6 +64,8 @@ const Navbar = () => {
         <button
           onClick={() => setOpen((open) => !open)}
           className="md:hidden text-2xl text-white"
+          data-testid="mobile-menu-toggle"
+          aria-label="toggle menu"
         >
           {open ? <FaTimes /> : <FaBars />}
         </button>
@@ -71,7 +73,10 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden   backdrop-blur border-t border-white/10">
+        <div
+          className="md:hidden   backdrop-blur border-t border-white/10"
+          data-testid="mobile-menu"
+        >
           <ul className="flex font-serif flex-col gap-6 px-6 py-6 text-neutral-300 text-md">
             <button
               onClick={() => {
