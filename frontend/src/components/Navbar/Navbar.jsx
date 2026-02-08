@@ -1,49 +1,118 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import Logo from "../../assets/logo.jpeg";
+import Logo from "../../assets/Company_Logo/CR_Logo.png";
+import {
+  FaHome,
+  FaServicestack,
+  FaInfoCircle,
+  FaEnvelope,
+} from "react-icons/fa";
 
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed  top-0 w-full bg-white shadow z-50">
+    <nav className="select-none caret-transparent fixed z-50 top-0 w-full backdrop-blur-md bg-black/60 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center gap-2 font-bold text-lg">
-          <img src={Logo} alt="logo" className="w-10 h-10 rounded-full" />
-          CloudRule
+        <div className="flex items-center gap-2 font-bold text-lg text-white">
+          <img
+            src={Logo}
+            alt="logo"
+            draggable="false"
+            className="w-12 h-12 border border-white/15 pointer-events-none rounded-full"
+          />
+          <div>
+            <h1 className="font-medium font-serif">C L O U D R U L E</h1>
+            <p className="ml-1.5 font-bold text-[12px]">
+              T E C H N O L O G I E S
+            </p>
+          </div>
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 font-medium">
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+        <ul className="hidden md:flex gap-8 font-serif text-neutral-300 text-md">
+          <a
+            href=""
+            onClick={() => navigate("/")}
+            className="hover:text-white transition flex items-center gap-2"
+          >
+            <FaHome /> Home
+          </a>
+          <a
+            href=""
+            onClick={() => navigate("/services")}
+            className="hover:text-white transition flex items-center gap-2"
+          >
+            <FaServicestack /> Services
+          </a>
+          <a
+            href=""
+            onClick={() => navigate("/aboutus")}
+            className="hover:text-white transition flex items-center gap-2"
+          >
+            <FaInfoCircle /> About
+          </a>
+          <a
+            href=""
+            onClick={() => navigate("/contact")}
+            className="hover:text-white transition flex items-center gap-2"
+          >
+            <FaEnvelope /> Contact
+          </a>
         </ul>
 
         {/* Mobile Icon */}
-        <button onClick={() => setOpen(!open)} className="md:hidden text-2xl">
+        <button
+          onClick={() => setOpen((open) => !open)}
+          className="md:hidden text-2xl text-white"
+        >
           {open ? <FaTimes /> : <FaBars />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-white shadow">
-          <ul className="flex flex-col gap-6 px-6 py-6 font-medium">
-            <a href="#home" onClick={() => setOpen(false)}>
-              Home
-            </a>
-            <a href="#services" onClick={() => setOpen(false)}>
-              Services
-            </a>
-            <a href="#about" onClick={() => setOpen(false)}>
-              About
-            </a>
-            <a href="#contact" onClick={() => setOpen(false)}>
-              Contact
-            </a>
+        <div className="md:hidden   backdrop-blur border-t border-white/10">
+          <ul className="flex font-serif flex-col gap-6 px-6 py-6 text-neutral-300 text-md">
+            <button
+              onClick={() => {
+                setOpen(false);
+                navigate("/");
+              }}
+              className="flex items-center gap-3"
+            >
+              <FaHome /> Home
+            </button>
+            <button
+              onClick={() => {
+                setOpen(false);
+                navigate("/services");
+              }}
+              className="flex items-center gap-3"
+            >
+              <FaServicestack /> Services
+            </button>
+            <button
+              onClick={() => {
+                setOpen(false);
+                navigate("/aboutus");
+              }}
+              className="flex items-center gap-3"
+            >
+              <FaInfoCircle /> About
+            </button>
+            <button
+              onClick={() => {
+                setOpen(false);
+                navigate("/contact");
+              }}
+              className="flex items-center gap-3"
+            >
+              <FaEnvelope /> Contact
+            </button>
           </ul>
         </div>
       )}
