@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import Logo from "../../assets/Company_Logo/CR_Logo.png";
+
 import {
   FaHome,
   FaServicestack,
@@ -19,7 +19,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex items-center gap-2 font-bold text-lg text-white">
           <img
-            src={Logo}
+            src="./CR_logo2.png"
             alt="logo"
             draggable="false"
             className="w-12 h-12 border border-white/15 pointer-events-none rounded-full"

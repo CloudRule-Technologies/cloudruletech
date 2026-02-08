@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Logo from "../../assets/Company_Logo/CR_Logo.png";
+
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center  gap-3">
               <img
-                src={Logo}
+                src="./CR_logo2.png"
                 alt="Cloudrule Logo"
                 draggable="false"
                 className="w-12 h-12 border border-white/15  rounded-full"
