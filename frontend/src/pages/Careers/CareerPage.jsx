@@ -8,7 +8,9 @@ import {
 
 const CareerPage = () => {
   const [isVisible, setIsVisible] = useState(false);
-
+  useEffect(() => {
+    document.title = "Career | CloudRule";
+  });
   useEffect(() => {
     const frame = requestAnimationFrame(() => setIsVisible(true));
     return () => cancelAnimationFrame(frame);
