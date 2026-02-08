@@ -198,42 +198,53 @@ const Comp_contact = () => {
           {/* INFO CARD */}
           <div
             className="lg:col-span-1 bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl
-                     p-8 sm:p-10 text-white/80 space-y-6
-                     opacity-0 animate-fade-in-right"
+             p-6 sm:p-10 text-white/80 space-y-6
+             opacity-0 animate-fade-in-right
+             w-full max-w-md mx-auto lg:mx-0"
             style={{ animationDelay: "400ms" }}
           >
-            <h2 className="text-xl sm:text-4xl font-serif text-white/80 text-center mb-6">
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-serif text-white/80 text-center mb-6 leading-snug">
               Contact our Support Team
             </h2>
 
-            <p className="text-white/70 text-sm sm:text-base leading-relaxed">
+            <p className="text-white/70 text-sm sm:text-base md:text-lg leading-relaxed text-center sm:text-left">
               Have questions or curious to explore more? Reach out to us and
               let’s walk you through our services.
             </p>
 
             <div className="flex items-start mt-4">
-              <HiOutlineLocationMarker className="text-2xl text-white/70 mr-3 mt-1" />
+              <HiOutlineLocationMarker className="text-2xl sm:text-3xl text-white/70 mr-3 mt-1" />
               <div>
-                <h3 className="font-serif font-semibold text-white">
+                <h3 className="font-serif font-semibold text-white text-sm sm:text-base">
                   Head Office
                 </h3>
-                <p className="text-white/70">KK Nagar, Madurai 625020</p>
+                <p className="text-white/70 text-xs sm:text-sm">
+                  KK Nagar, Madurai 625020
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start mt-4">
+              <AiOutlineMail className="text-2xl sm:text-3xl text-white/70 mr-3 mt-1" />
+              <div>
+                <h3 className="font-serif font-semibold text-white text-sm sm:text-base">
+                  Email
+                </h3>
+                <p className="text-white/70 text-xs sm:text-sm">
+                  cloudruletechnologies@gmail.com
+                </p>
               </div>
             </div>
 
             <div className="flex items-start mt-3">
-              <AiOutlineMail className="text-2xl text-white/70 mr-3 mt-1" />
+              <AiOutlinePhone className="text-2xl sm:text-3xl text-white/70 mr-3 mt-1" />
               <div>
-                <h3 className="font-serif font-semibold text-white">Email</h3>
-                <p className="text-white/70">cloudruletechnologies@gmail.com</p>
-              </div>
-            </div>
-
-            <div className="flex items-start mt-3">
-              <AiOutlinePhone className="text-2xl text-white/70 mr-3 mt-1" />
-              <div>
-                <h3 className="font-serif font-semibold text-white">Phone</h3>
-                <p className="text-white/70">+91 98765 43210</p>
+                <h3 className="font-serif font-semibold text-white text-sm sm:text-base">
+                  Phone
+                </h3>
+                <p className="text-white/70 text-xs sm:text-sm">
+                  +91 98765 43210
+                </p>
               </div>
             </div>
 
@@ -241,7 +252,7 @@ const Comp_contact = () => {
               <a
                 href="mailto:cloudruletechnologies@gmail.com"
                 className="bg-gray-800 text-white px-6 py-3 rounded-lg
-                         hover:bg-gray-600 transition duration-300"
+                 hover:bg-gray-600 transition duration-300 text-sm sm:text-base"
               >
                 Email Us
               </a>
