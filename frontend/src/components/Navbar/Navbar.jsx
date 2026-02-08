@@ -14,7 +14,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="select-none cursor-pointer caret-transparent fixed z-50 top-0 w-full backdrop-blur-md bg-black/60 border-b border-white/10">
+    <nav className="select-none  caret-transparent fixed z-50 top-0 w-full backdrop-blur-md bg-black/60 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center gap-2 font-bold text-lg text-white">
@@ -33,28 +33,28 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 font-serif text-neutral-300 text-md">
+        <ul className="hidden md:flex gap-8  font-serif text-neutral-300 text-md">
           <button
             onClick={() => navigate("/")}
-            className="hover:text-white transition flex items-center gap-2"
+            className="hover:text-white cursor-pointer transition flex items-center gap-2"
           >
             <FaHome /> Home
           </button>
           <button
             onClick={() => navigate("/services")}
-            className="hover:text-white transition flex items-center gap-2"
+            className="hover:text-white cursor-pointer transition flex items-center gap-2"
           >
             <FaServicestack /> Services
           </button>
           <button
             onClick={() => navigate("/aboutus")}
-            className="hover:text-white transition flex items-center gap-2"
+            className="hover:text-white cursor-pointer transition flex items-center gap-2"
           >
             <FaInfoCircle /> About
           </button>
           <button
             onClick={() => navigate("/contact")}
-            className="hover:text-white transition flex items-center gap-2"
+            className="hover:text-white cursor-pointer transition flex items-center gap-2"
           >
             <FaEnvelope /> Contact
           </button>
@@ -78,7 +78,7 @@ const Navbar = () => {
                 setOpen(false);
                 navigate("/");
               }}
-              className="flex items-center gap-3"
+              className="flex  items-center gap-3"
             >
               <FaHome /> Home
             </button>
