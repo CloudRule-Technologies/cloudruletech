@@ -228,7 +228,7 @@ const CareerPage = () => {
       `}</style>
 
       {/* CHANGED: Added "background" class here */}
-      <div className="background relative z-50 min-h-screen">
+      <div className="bg-white relative z-50 min-h-screen">
         <Navbar />
         
         {/* Hero Section */}
@@ -252,35 +252,33 @@ const CareerPage = () => {
             {/* Radial gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white"></div>
           </div>
-
-          <div className={`relative z-10 text-center max-w-5xl mx-auto space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+ <div className={`relative z-10 text-center max-w-5xl mx-auto space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             {/* Badge with pulse animation */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-semibold text-white animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 backdrop-blur-sm border border-black/10 text-sm font-semibold text-black/80 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/60 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-black/40 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-black/60"></span>
               </span>
               Join Our Team
             </div>
-
             {/* Main heading with gradient animation */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black leading-tight animate-fade-in-up" style={{ animationDelay: '300ms' }}>
               Build Your Career
               <br />
-              <span className="bg-gradient-to-r from-gray-300 via-white to-gray-300 bg-clip-text text-transparent animate-gradient">
+              <span className="bg-gradient-to-r from-gray-300 via-black to-gray-300 bg-clip-text text-transparent animate-gradient">
                 With Us
               </span>
             </h1>
 
             {/* Decorative line with expand animation */}
             <div className="flex items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '500ms' }}>
-              <div className="h-px bg-gradient-to-r from-transparent to-white/30 animate-expand-right"></div>
-              <div className="w-2 h-2 rounded-full bg-white/60 animate-pulse"></div>
-              <div className="h-px bg-gradient-to-l from-transparent to-white/30 animate-expand-left"></div>
+              <div className="h-px bg-gradient-to-r from-transparent to-black/30 animate-expand-right"></div>
+              <div className="w-4 h-4 rounded-full bg-black/60 animate-pulse"></div>
+              <div className="h-px bg-gradient-to-l from-transparent to-black/30 animate-expand-left"></div>
             </div>
 
             {/* Subheading */}
-            <p className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed font-medium animate-fade-in-up" style={{ animationDelay: '700ms' }}>
+            <p className="text-lg sm:text-xl md:text-2xl text-black /80 max-w-3xl mx-auto leading-relaxed font-medium animate-fade-in-up" style={{ animationDelay: '700ms' }}>
               Shape the future of education and technology by joining our passionate team of innovators.
             </p>
           </div>
@@ -290,17 +288,17 @@ const CareerPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           {/* Section Header */}
           <div className="text-center mb-16 space-y-4 animate-fade-in-up">
-            <div className="inline-block px-4 py-2 rounded-full bg-white/10 text-sm font-bold text-white/80 mb-4 hover:bg-white/20 transition-colors duration-300">
+            <div className="inline-block px-4 py-2 rounded-full bg-black/10 text-sm font-bold text-black/80 mb-4 hover:bg-black/20 transition-colors duration-300">
               Current Openings
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black">
               Available Positions
             </h2>
           </div>
 
           {/* Large Teaching Position Card */}
           <div className="relative group animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-            <div className="relative bg-white rounded-3xl shadow-xl shadow-black/5 border-2 border-black/5 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-black/20 hover:border-black/30 hover:-translate-y-2">
+            <div className="relative bg- rounded-3xl shadow-xl shadow-black/5 border-2 border-black/5 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-black/20 hover:border-black/30 hover:-translate-y-2">
               {/* Animated shimmer */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
               
