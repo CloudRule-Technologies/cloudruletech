@@ -11,9 +11,87 @@ import isac from "../../assets/Isac-Profile.jpeg";
 import { useEffect } from "react";
 
 const AboutUs = () => {
-  useEffect(() => {
-    document.title = "AboutUS | CloudRule";
+ 
+useEffect(() => {
+  document.title = "About Us | CloudRule - IT Solutions & Training Company";
+
+  const metaTags = [
+    {
+      name: "description",
+      content:
+        "Learn about CloudRule Technology Private Limited – a leading IT solutions and software development company offering web development, digital platforms, internships, and industry-focused training programs.",
+    },
+    {
+      name: "keywords",
+      content:
+        "CloudRule, CloudRule Technology, IT Solutions Company, Software Development, Web Development, Digital Platform Development, Internship Programs, Industry Training, Fullstack Development",
+    },
+    {
+      property: "og:title",
+      content: "About CloudRule | IT Solutions & Digital Transformation",
+    },
+    {
+      property: "og:description",
+      content:
+        "CloudRule Technology delivers scalable IT solutions, web platforms, internships, and hands-on training programs to empower businesses and students.",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:url",
+      content: window.location.href,
+    },
+    {
+      property: "og:image",
+      content: window.location.origin + "/Logo.jpeg",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:title",
+      content: "About CloudRule Technology",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "IT Solutions, Software Development, Internships & Industry-Focused Training Programs.",
+    },
+  ];
+
+  metaTags.forEach((tag) => {
+    const element = document.createElement("meta");
+    Object.keys(tag).forEach((key) => {
+      element.setAttribute(key, tag[key]);
+    });
+    document.head.appendChild(element);
   });
+
+  // Canonical Tag
+  const link = document.createElement("link");
+  link.rel = "canonical";
+  link.href = window.location.href;
+  document.head.appendChild(link);
+
+  // Cleanup on unmount
+  return () => {
+    metaTags.forEach((tag) => {
+      const selector = tag.name
+        ? `meta[name="${tag.name}"]`
+        : `meta[property="${tag.property}"]`;
+      const element = document.querySelector(selector);
+      if (element) document.head.removeChild(element);
+    });
+
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) document.head.removeChild(canonical);
+  };
+}, []);
+
+
   const services = [
     {
       title: "IT Solutions & Software Development",
