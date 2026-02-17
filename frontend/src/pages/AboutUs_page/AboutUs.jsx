@@ -142,7 +142,7 @@ useEffect(() => {
   return (
     <div
       data-testid="about-page"
-      className="relative z-10 max-sm:mt-8 about-us-container"
+      className="relative z-10 max-sm:mt-8 about-us-container" 
     >
       <h1 className="main-title">About Us</h1>
 

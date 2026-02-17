@@ -1,6 +1,122 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Hero = () => {
+
+  useEffect(() => {
+    // Title
+    document.title = "CloudRule Technology - Cloud & Web Solutions | Code Your Future, Rule Your Cloud";
+
+    // Helper to set meta tags
+    const setMeta = (attr, key, value) => {
+      let el = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", value);
+    };
+
+    // Helper to set canonical
+    const setCanonical = (url) => {
+      let el = document.querySelector('link[rel="canonical"]');
+      if (!el) {
+        el = document.createElement("link");
+        el.setAttribute("rel", "canonical");
+        document.head.appendChild(el);
+      }
+      el.setAttribute("href", url);
+    };
+
+    // Helper to set structured data
+    const setStructuredData = (data) => {
+      let el = document.getElementById("structured-data-hero");
+      if (!el) {
+        el = document.createElement("script");
+        el.type = "application/ld+json";
+        el.id = "structured-data-hero";
+        document.head.appendChild(el);
+      }
+      el.textContent = JSON.stringify(data);
+    };
+
+    // Primary Meta Tags
+    setMeta("name", "description", "CloudRule Technology delivers scalable cloud and web solutions for next-generation businesses. Expert IT services focused on innovation, scalability, and security.");
+    setMeta("name", "keywords", "cloud solutions, web development, IT services, cloud computing, scalable technology, digital transformation, CloudRule Technology");
+    setMeta("name", "author", "CloudRule Technology");
+    setMeta("name", "robots", "index, follow");
+    setMeta("name", "language", "English");
+
+    // Canonical URL
+    setCanonical("https://www.cloudruletech.com");
+
+    // Open Graph / Facebook
+    setMeta("property", "og:type", "website");
+    setMeta("property", "og:url", "https://www.cloudruletech.com");
+    setMeta("property", "og:title", "CloudRule Technology - Cloud & Web Solutions | Code Your Future, Rule Your Cloud");
+    setMeta("property", "og:description", "CloudRule Technology delivers scalable cloud and web solutions for next-generation businesses.");
+    setMeta("property", "og:image", "https://www.cloudruletech.com/og-image.jpg");
+    setMeta("property", "og:site_name", "CloudRule Technology");
+
+    // Twitter
+    setMeta("property", "twitter:card", "summary_large_image");
+    setMeta("property", "twitter:url", "https://www.cloudruletech.com");
+    setMeta("property", "twitter:title", "CloudRule Technology - Cloud & Web Solutions");
+    setMeta("property", "twitter:description", "CloudRule Technology delivers scalable cloud and web solutions for next-generation businesses.");
+    setMeta("property", "twitter:image", "https://www.cloudruletech.com/og-image.jpg");
+
+    // Structured Data (JSON-LD)
+    setStructuredData({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CloudRule Technology",
+      "description": "Digital foundation delivering scalable cloud and web solutions for next-generation businesses",
+      "url": "https://www.cloudruletech.com",
+      "logo": "https://www.cloudruletech.com/logo.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/cloudrule",
+        "https://twitter.com/cloudrule",
+        "https://www.facebook.com/cloudrule"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "areaServed": "Worldwide",
+        "availableLanguage": ["English"]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "IT Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cloud Solutions",
+              "description": "Scalable cloud infrastructure and management"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Web Development",
+              "description": "Modern web application development"
+            }
+          }
+        ]
+      }
+    });
+
+    // Cleanup on unmount
+    return () => {
+      document.title = "CloudRule Technology";
+      const el = document.getElementById("structured-data-hero");
+      if (el) el.remove();
+    };
+  }, []);
+
+  // ─── Original Hero Component - Completely Unchanged ───────────────────────
   return (
     <section
       id="home"
@@ -12,7 +128,6 @@ const Hero = () => {
         className="absolute top-24 left-1/2 -translate-x-1/2 w-[30rem] h-[30rem] 
                       bg-white/10 rounded-full blur-[140px]"
       />
-
       <div className="relative z-10 max-w-7xl mx-auto text-center">
         {/* badge */}
         <span
@@ -22,7 +137,6 @@ const Hero = () => {
         >
           Innovate • Scale • Secure
         </span>
-
         {/* heading */}
         <h1
           className="text-4xl md:text-7xl font-extrabold leading-tight mb-6 text-white
@@ -36,7 +150,6 @@ const Hero = () => {
             <span className="absolute left-0 -bottom-2 w-full h-[3px] bg-blue-300/60 rounded-full" />
           </span>
         </h1>
-
         {/* description */}
         <p
           className="max-w-2xl mx-auto text-lg md:text-xl text-slate-300 leading-relaxed
@@ -44,12 +157,11 @@ const Hero = () => {
                      animate-[fadeInUp_0.9s_ease-out_forwards]
                      [animation-delay:320ms]"
         >
-          CloudRule Technology isn’t just an IT provider. We are your digital
+          CloudRule Technology isn't just an IT provider. We are your digital
           foundation, delivering scalable cloud and web solutions for the next
           generation of businesses.
         </p>
       </div>
-
       {/* animations */}
       <style>{`
         @keyframes fadeIn {
