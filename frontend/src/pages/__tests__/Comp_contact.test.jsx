@@ -1,6 +1,7 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import Comp_contact from "../../components/Comp_contact/Comp_contact";
 import { beforeEach, describe, expect, test, vi } from "vitest";
+import { api } from "../../services/api";
 
 /* mock react-toastify */
 vi.mock("react-toastify", () => ({
@@ -11,11 +12,15 @@ vi.mock("react-toastify", () => ({
   },
 }));
 
-globalThis.fetch = vi.fn();
+vi.mock("../../services/api", () => ({
+  api: {
+    submitContact: vi.fn(),
+  },
+}));
 
 describe("Comp_contact Component", () => {
   beforeEach(() => {
-    fetch.mockClear();
+    api.submitContact.mockReset();
   });
 
   test("renders contact heading", () => {
@@ -33,9 +38,7 @@ describe("Comp_contact Component", () => {
   });
 
   test("submits form successfully", async () => {
-    fetch.mockResolvedValueOnce({
-      json: async () => ({ success: true }),
-    });
+    api.submitContact.mockResolvedValueOnce({ confirmationMessage: "ok" });
 
     render(<Comp_contact />);
 
@@ -47,6 +50,10 @@ describe("Comp_contact Component", () => {
       target: { value: "test@mail.com" },
     });
 
+    fireEvent.change(screen.getByRole("combobox", { name: /role/i }), {
+      target: { value: "Student" },
+    });
+
     fireEvent.change(screen.getByPlaceholderText(/enter your message/i), {
       target: { value: "Hello" },
     });
@@ -54,7 +61,7 @@ describe("Comp_contact Component", () => {
     fireEvent.click(screen.getByRole("button", { name: /send message/i }));
 
     await waitFor(() => {
-      expect(fetch).toHaveBeenCalledTimes(1);
+      expect(api.submitContact).toHaveBeenCalledTimes(1);
     });
   });
 

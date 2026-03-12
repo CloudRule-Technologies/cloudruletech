@@ -3,6 +3,7 @@ import { AiOutlineMail, AiOutlineUser, AiOutlineMessage } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { AiOutlinePhone } from "react-icons/ai";
+import { api } from "../../services/api";
 import "react-toastify/dist/ReactToastify.css";
 
 const Comp_contact = () => {
@@ -12,6 +13,7 @@ const Comp_contact = () => {
     title: "Reach Out to Us",
     fullNameLabel: "Full Name",
     fullNamePlaceholder: "Enter Your Name",
+    roleLabel: "Role",
     emailLabel: "Email Address",
     emailPlaceholder: "Enter Your Email",
     messageLabel: "Your Message",
@@ -26,28 +28,24 @@ const Comp_contact = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     setResult("Sending...");
-
     const formData = new FormData(event.target);
-    formData.append("access_key", "c2550d15-3236-4931-b941-96e527821bb8");
+    const payload = {
+      name: formData.get("name"),
+      role: formData.get("role"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
-      const data = await response.json();
-
-      if (data.success) {
-        toast.success("Form Submitted Successfully");
-        setResult("");
-        event.target.reset();
-      } else {
-        toast.error(data.message || "Submission failed");
-        setResult("Error");
-      }
+      const response = await api.submitContact(payload);
+      toast.success(
+        response.confirmationMessage || "Thank you. Your message has been received.",
+      );
+      setResult("");
+      event.target.reset();
     } catch (error) {
       console.error(error);
-      toast.error("Something went wrong");
+      toast.error(error.message || "Something went wrong");
       setResult("Error");
     }
   };
@@ -132,7 +130,7 @@ const Comp_contact = () => {
 
               {/* Name */}
               <div className="mb-6">
-                <label className="block mb-2 text-white/70">
+                <label htmlFor="contact-name" className="block mb-2 text-white/70">
                   {content.fullNameLabel}
                 </label>
                 <div className="flex items-center border-b-2 border-gray-700 focus-within:border-white transition">
@@ -140,6 +138,7 @@ const Comp_contact = () => {
                   <input
                     type="text"
                     name="name"
+                    id="contact-name"
                     required
                     placeholder={content.fullNamePlaceholder}
                     className="w-full bg-transparent focus:outline-none py-2 text-white placeholder-white/50"
@@ -149,7 +148,7 @@ const Comp_contact = () => {
 
               {/* Email */}
               <div className="mb-6">
-                <label className="block mb-2 text-white/70">
+                <label htmlFor="contact-email" className="block mb-2 text-white/70">
                   {content.emailLabel}
                 </label>
                 <div className="flex items-center border-b-2 border-gray-700 focus-within:border-white transition">
@@ -157,6 +156,7 @@ const Comp_contact = () => {
                   <input
                     type="email"
                     name="email"
+                    id="contact-email"
                     required
                     placeholder={content.emailPlaceholder}
                     className="w-full bg-transparent focus:outline-none py-2 text-white placeholder-white/50"
@@ -164,15 +164,54 @@ const Comp_contact = () => {
                 </div>
               </div>
 
+              {/* Role */}
+              <div className="mb-6">
+                <label htmlFor="contact-role" className="block mb-2 text-white/70">
+                  {content.roleLabel}
+                </label>
+                <div className="relative flex items-center border-b-2 border-gray-700 focus-within:border-white transition">
+                  <AiOutlineUser className="text-xl text-gray-300 mr-3" />
+                  <select
+                    name="role"
+                    id="contact-role"
+                    required
+                    defaultValue=""
+                    className="w-full bg-transparent focus:outline-none py-2 text-white placeholder-white/50 appearance-none"
+                  >
+                    <option value="" disabled className="text-black">
+                      Select your role
+                    </option>
+                    <option value="Student" className="text-black">
+                      Student
+                    </option>
+                    <option value="Professional" className="text-black">
+                      Professional
+                    </option>
+                  </select>
+                  <span className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-white/60">
+                    <svg width="12" height="12" viewBox="0 0 20 20" fill="none">
+                      <path
+                        d="M5 7L10 12L15 7"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
               {/* Message */}
               <div className="mb-6">
-                <label className="block mb-2 text-white/70">
+                <label htmlFor="contact-message" className="block mb-2 text-white/70">
                   {content.messageLabel}
                 </label>
                 <div className="flex items-start border-b-2 border-gray-700 focus-within:border-white transition">
                   <AiOutlineMessage className="text-xl text-gray-300 mr-3 mt-2" />
                   <textarea
                     name="message"
+                    id="contact-message"
                     required
                     placeholder={content.messagePlaceholder}
                     className="w-full bg-transparent focus:outline-none py-2 h-28 resize-none text-white placeholder-white/50"
