@@ -20,7 +20,7 @@ const Hero = () => {
                      opacity-0 translate-y-3
                      animate-[fadeIn_0.8s_ease-out_forwards]"
         >
-          Innovate • Scale • Secure
+          {/* Innovate • Scale • Secure */}
         </span>
 
         {/* heading */}

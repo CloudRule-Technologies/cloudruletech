@@ -126,7 +126,7 @@ const Comp_contact = () => {
             style={{ animationDelay: "250ms" }}
           >
             <form onSubmit={onSubmit} className="flex flex-col w-full">
-              <h2 className="text-xl sm:text-4xl font-serif text-white/80 text-center mb-8">
+              <h2 className="text-xl sm:text-4xl font-sans text-white/80 text-center mb-8">
                 {content.title}
               </h2>
 
@@ -203,7 +203,7 @@ const Comp_contact = () => {
              w-full max-w-md mx-auto lg:mx-0"
             style={{ animationDelay: "400ms" }}
           >
-            <h2 className="text-xl sm:text-3xl md:text-4xl font-serif text-white/80 text-center mb-6 leading-snug">
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-sans text-white/80 text-center mb-6 leading-snug">
               Contact our Support Team
             </h2>
 
@@ -215,7 +215,7 @@ const Comp_contact = () => {
             <div className="flex items-start mt-4">
               <HiOutlineLocationMarker className="text-2xl sm:text-3xl text-white/70 mr-3 mt-1" />
               <div>
-                <h3 className="font-serif font-semibold text-white text-sm sm:text-base">
+                <h3 className="font-sans font-semibold text-white text-sm sm:text-base">
                   Head Office
                 </h3>
                 <p className="text-white/70 text-xs sm:text-sm">
@@ -227,7 +227,7 @@ const Comp_contact = () => {
             <div className="flex items-start mt-4">
               <AiOutlineMail className="text-2xl sm:text-3xl text-white/70 mr-3 mt-1" />
               <div>
-                <h3 className="font-serif font-semibold text-white text-sm sm:text-base">
+                <h3 className="font-sans font-semibold text-white text-sm sm:text-base">
                   Email
                 </h3>
                 <p className="text-white/70 text-xs sm:text-sm">
@@ -239,7 +239,7 @@ const Comp_contact = () => {
             <div className="flex items-start mt-3">
               <AiOutlinePhone className="text-2xl sm:text-3xl text-white/70 mr-3 mt-1" />
               <div>
-                <h3 className="font-serif font-semibold text-white text-sm sm:text-base">
+                <h3 className="font-sans font-semibold text-white text-sm sm:text-base">
                   Phone
                 </h3>
                 <p className="text-white/70 text-xs sm:text-sm">

@@ -25,15 +25,15 @@ const Navbar = () => {
             className="w-12 h-12 border border-white/15 pointer-events-none rounded-full"
           />
           <div>
-            <h1 className="font-medium font-serif">C L O U D R U L E</h1>
-            <p className="ml-1.5 font-bold text-[12px]">
-              T E C H N O L O G I E S
+            <h1 className="font-medium font-display tracking-[0.3em] uppercase">CLOUDRULE</h1>
+            <p className="ml-0.5 font-bold text-[10px] tracking-[0.2em] text-white/60">
+              TECHNOLOGIES
             </p>
           </div>
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8  font-serif text-neutral-300 text-md">
+        <ul className="hidden md:flex gap-8  font-sans text-neutral-300 text-md">
           <button
             onClick={() => navigate("/")}
             className="hover:text-white cursor-pointer transition flex items-center gap-2"
@@ -83,7 +83,7 @@ const Navbar = () => {
           className="md:hidden   backdrop-blur border-t border-white/10"
           data-testid="mobile-menu"
         >
-          <ul className="flex font-serif flex-col gap-6 px-6 py-6 text-neutral-300 text-md">
+          <ul className="flex font-sans flex-col gap-6 px-6 py-6 text-neutral-300 text-md">
             <button
               onClick={() => {
                 setOpen(false);

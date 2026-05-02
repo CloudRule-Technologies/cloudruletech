@@ -1,173 +1,183 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import {
   FaUserTie,
   FaCheckCircle,
-  FaGift,
-  FaGraduationCap,
+  FaRocket,
+  FaLightbulb,
+  FaUsers,
+  FaShieldAlt,
 } from "react-icons/fa";
 
 const CareerPage = () => {
-  const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
-    document.title = "Career | CloudRule";
-  });
-  useEffect(() => {
-    const frame = requestAnimationFrame(() => setIsVisible(true));
-    return () => cancelAnimationFrame(frame);
+    document.title = "Careers | CloudRule";
+    window.scrollTo(0, 0);
   }, []);
 
-  return (
-    <>
-      <div className="relative z-1 min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
-        {/* Hero Section */}
-        <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 pt-20">
-          {/* Animated background blobs */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-gray-400/20 rounded-full blur-3xl animate-blob"></div>
-            <div
-              className="absolute top-1/3 -right-1/4 w-96 h-96 bg-gray-500/20 rounded-full blur-3xl animate-blob"
-              style={{ animationDelay: "2s" }}
-            ></div>
-            <div
-              className="absolute -bottom-1/4 left-1/2 w-96 h-96 bg-gray-400/20 rounded-full blur-3xl animate-blob"
-              style={{ animationDelay: "4s" }}
-            ></div>
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-          </div>
+  const perks = [
+    {
+      icon: <FaRocket className="text-blue-400" />,
+      title: "Fast Growth",
+      desc: "Accelerate your career in a high-growth tech environment.",
+    },
+    {
+      icon: <FaLightbulb className="text-yellow-400" />,
+      title: "Innovation",
+      desc: "Work on cutting-edge solutions that solve real-world problems.",
+    },
+    {
+      icon: <FaUsers className="text-green-400" />,
+      title: "Great Culture",
+      desc: "Collaborate with a diverse team of passionate professionals.",
+    },
+    {
+      icon: <FaShieldAlt className="text-purple-400" />,
+      title: "Stability",
+      desc: "Join a secure organization building for the future.",
+    },
+  ];
 
-          <div
-            className={`relative z-10 text-center max-w-5xl mx-auto space-y-8 transition-all duration-1000 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 text-sm font-semibold text-black/80 animate-fade-in-up">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-black/40 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-black/60"></span>
-              </span>
-              Join Our Team
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black leading-tight animate-fade-in-up">
-              Build Your Career
-              <br />
-              <span className="bg-gradient-to-r from-gray-700 via-gray-900 to-black bg-clip-text text-transparent animate-gradient">
-                With Us
-              </span>
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-black/60 max-w-3xl mx-auto leading-relaxed font-medium animate-fade-in-up">
-              Shape the future of education and technology by joining our
-              passionate team of innovators.
-            </p>
-          </div>
+  return (
+    <div className="relative z-10 min-h-screen pt-32 pb-20 px-6">
+      {/* Hero Section - Patterned after Services Page for 'Proper' Design */}
+      <div className="container mx-auto text-center mb-32 animate-fade-in-up">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10">
+          <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+          <span className="text-xs md:text-sm font-semibold tracking-[0.25em] uppercase text-white/60">
+            Join the Revolution
+          </span>
         </div>
 
-        {/* Job Posting Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-          <div className="text-center mb-16 space-y-4 animate-fade-in-up">
-            <div className="inline-block px-4 py-2 rounded-full bg-black/5 text-sm font-bold text-black/60 mb-4 hover:bg-black/10 transition-colors duration-300">
-              Current Openings
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black">
-              Available Positions
-            </h2>
-          </div>
+        {/* Heading */}
+        <h1 className="text-5xl md:text-8xl font-display font-black tracking-tighter mb-8 bg-gradient-to-b from-white via-white to-white/40 bg-clip-text text-transparent">
+          Build Your Future <br />
+          <span className="text-blue-400">With Us</span>
+        </h1>
 
-          <div className="relative group animate-fade-in-up">
-            <div className="relative bg-white rounded-3xl shadow-xl shadow-black/5 border-2 border-black/5 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-black/20 hover:border-black/30 hover:-translate-y-2">
-              <div className="relative p-8 md:p-12 space-y-8">
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-                  <div className="space-y-4 animate-slide-in-left">
-                    <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-gradient-to-br from-gray-800 to-black text-white font-bold text-lg shadow-lg shadow-black/25 hover:shadow-black/40 hover:scale-105 transition-all duration-300">
-                      <FaUserTie className="text-2xl animate-bounce-slow" />
-                      <span>Teaching Professional</span>
+        {/* Decorative line */}
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="h-[2px] w-20 bg-gradient-to-r from-transparent to-white/30 rounded-full" />
+          <div className="h-2.5 w-2.5 rounded-full bg-white/50" />
+          <div className="h-[2px] w-20 bg-gradient-to-l from-transparent to-white/30 rounded-full" />
+        </div>
+
+        {/* Subheading */}
+        <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-light">
+          We’re not just building software; we’re building careers. Join a mission-driven team where your ideas shape the digital foundations of tomorrow.
+        </p>
+      </div>
+
+      <div className="max-w-7xl mx-auto space-y-32">
+        
+        {/* Perks Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {perks.map((perk, index) => (
+            <div 
+              key={index}
+              className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-all duration-500 group"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition duration-500">
+                {perk.icon}
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">{perk.title}</h3>
+              <p className="text-slate-500 text-sm leading-relaxed">{perk.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Openings Title */}
+        <div className="text-center space-y-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold">Open Positions</h2>
+          <p className="text-slate-500 uppercase tracking-widest text-xs">Always looking for talent</p>
+        </div>
+
+        {/* Job Card - Proper Professional Layout */}
+        <div className="relative group overflow-hidden rounded-[40px]">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+          
+          <div className="relative p-1 md:p-[2px] bg-gradient-to-b from-white/20 to-transparent rounded-[40px]">
+            <div className="bg-[#050505] rounded-[38px] p-8 md:p-16">
+              
+              <div className="flex flex-col lg:flex-row gap-16 items-start">
+                {/* Left: Job Core Info */}
+                <div className="lg:w-1/2 space-y-10">
+                  <div className="space-y-6">
+                    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest">
+                      <FaUserTie /> Education & Training
                     </div>
-                    <p className="text-xl md:text-2xl font-bold text-black/80">
-                      Any Degree Graduate Welcome
-                    </p>
+                    <h3 className="text-4xl md:text-5xl font-display font-bold text-white leading-tight">
+                      Teaching Professional
+                    </h3>
+                    <div className="flex flex-wrap gap-6 text-slate-400 font-medium">
+                      <span className="flex items-center gap-2">📍 Madurai, India</span>
+                      <span className="flex items-center gap-2">⏰ Full-time</span>
+                      <span className="flex items-center gap-2">🎓 Any Degree</span>
+                    </div>
                   </div>
-                  <div className="flex flex-wrap gap-3 text-sm font-semibold text-black/60 animate-slide-in-right">
-                    <span className="px-4 py-2 rounded-xl bg-green-50 text-green-700 border border-green-200 hover:bg-green-100 hover:scale-105 transition-all duration-300 cursor-default">
-                      <FaCheckCircle className="inline mr-1" /> Open for
-                      Applications
-                    </span>
-                    <span className="px-4 py-2 rounded-xl bg-gray-50 text-gray-700 border border-gray-200 hover:bg-gray-100 hover:scale-105 transition-all duration-300 cursor-default">
-                      📍 On-site
-                    </span>
-                    <span className="px-4 py-2 rounded-xl bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200 hover:scale-105 transition-all duration-300 cursor-default">
-                      ⏰ Full-time
-                    </span>
-                    <span className="px-4 py-2 rounded-xl bg-gray-50 text-gray-700 border border-gray-200 hover:bg-gray-100 hover:scale-105 transition-all duration-300 cursor-default">
-                      <FaGraduationCap className="inline mr-1" /> Any Degree
-                    </span>
+
+                  <p className="text-slate-400 text-lg leading-relaxed">
+                    We are looking for enthusiastic individuals with any degree background who are passionate about mentoring students and bridging the gap between academia and industry.
+                  </p>
+
+                  <div className="pt-4">
+                    <a 
+                      href="mailto:careers@cloudrule.com"
+                      className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-black rounded-2xl hover:bg-blue-50 transition-all hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+                    >
+                      Apply for this Position <FaRocket className="text-sm" />
+                    </a>
                   </div>
                 </div>
 
-                {/* Requirements & Offers */}
-                <div className="grid md:grid-cols-2 gap-8 pt-4">
-                  <div className="space-y-6">
-                    <h4 className="text-xl font-black text-black flex items-center gap-2">
-                      <FaCheckCircle className="text-2xl animate-bounce-slow" />
-                      What We're Looking For
+                {/* Right: Requirements & Details */}
+                <div className="lg:w-1/2 w-full grid gap-8">
+                  <div className="p-8 rounded-3xl bg-white/[0.03] border border-white/10 space-y-6">
+                    <h4 className="text-xl font-bold flex items-center gap-3 text-white">
+                      <FaCheckCircle className="text-blue-500" /> Key Requirements
                     </h4>
-                    <ul className="space-y-3">
+                    <ul className="space-y-4">
                       {[
-                        "Bachelor's degree in any field",
-                        "Strong passion for teaching and education",
-                        "Excellent communication skills",
-                        "Patient and enthusiastic personality",
-                        "Willingness to learn and grow",
-                        "Creative and innovative mindset",
-                      ].map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex items-start gap-3 text-black/70 font-medium group/item animate-fade-in-up hover:translate-x-2 transition-transform duration-300"
-                          style={{ animationDelay: `${800 + index * 100}ms` }}
-                        >
-                          <span className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center text-sm font-bold mt-0.5 group-hover/item:bg-black group-hover/item:text-white group-hover/item:scale-110 transition-all duration-300">
-                            ✓
-                          </span>
-                          <span className="flex-1">{item}</span>
+                        "Bachelor's degree (Any Discipline)",
+                        "Strong communication and interpersonal skills",
+                        "Passion for teaching and student success",
+                        "Willingness to learn and adapt to tech",
+                      ].map((req, i) => (
+                        <li key={i} className="flex items-center gap-4 text-slate-400 text-sm">
+                          <div className="w-1.5 h-1.5 rounded-full bg-blue-500/50" />
+                          {req}
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="space-y-6">
-                    <h4 className="text-xl font-black text-black flex items-center gap-2">
-                      <FaGift className="text-2xl animate-bounce-slow" />
-                      What We Offer
+                  <div className="p-8 rounded-3xl bg-white/[0.03] border border-white/10 space-y-6">
+                    <h4 className="text-xl font-bold flex items-center gap-3 text-white">
+                      <FaCheckCircle className="text-green-500" /> Perks & Benefits
                     </h4>
-                    <ul className="space-y-3">
+                    <ul className="grid grid-cols-2 gap-4">
                       {[
-                        "Competitive salary package",
-                        "Professional development programs",
-                        "Friendly work environment",
-                        "Career growth opportunities",
-                        "Flexible working hours",
-                        "Health and wellness benefits",
-                      ].map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex items-start gap-3 text-black/70 font-medium group/item animate-fade-in-up hover:translate-x-2 transition-transform duration-300"
-                          style={{ animationDelay: `${1200 + index * 100}ms` }}
-                        >
-                          <span className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center text-sm font-bold mt-0.5 group-hover/item:bg-black group-hover/item:text-white group-hover/item:scale-110 transition-all duration-300">
-                            ✓
-                          </span>
-                          <span className="flex-1">{item}</span>
+                        "Competitive Pay",
+                        "Mentorship",
+                        "Tech Exposure",
+                        "Career Growth",
+                      ].map((perk, i) => (
+                        <li key={i} className="flex items-center gap-3 text-slate-400 text-sm">
+                          <div className="w-1 h-1 rounded-full bg-green-500/50" />
+                          {perk}
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
+
       </div>
-    </>
+    </div>
   );
 };
 

@@ -18,9 +18,9 @@ const Footer = () => {
                 className="w-12 h-12 border border-white/15  rounded-full"
               />
               <div>
-                <h1 className="font-medium font-serif">C L O U D R U L E</h1>
-                <p className="ml-1 font-bold text-[10px]">
-                  T E C H N O L O G I E S
+                <h1 className="font-medium font-display tracking-[0.3em] uppercase">CLOUDRULE</h1>
+                <p className="ml-0.5 font-bold text-[8px] tracking-[0.2em] text-white/40">
+                  TECHNOLOGIES
                 </p>
               </div>
             </div>
@@ -29,7 +29,7 @@ const Footer = () => {
 
           {/* LINKS */}
           <div>
-            <h3 className="text-white font-bold mb-4 font-serif">
+            <h3 className="text-white font-bold mb-4 font-sans">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -78,7 +78,7 @@ const Footer = () => {
 
           {/* CONTACT */}
           <div>
-            <h3 className="text-white font-bold mb-4 font-serif">Contact</h3>
+            <h3 className="text-white font-bold mb-4 font-sans">Contact</h3>
             <p>cloudruletechnologies@gmail.com</p>
             <p>+91 86959 54966</p>
           </div>

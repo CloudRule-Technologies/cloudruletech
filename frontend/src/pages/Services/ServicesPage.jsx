@@ -1,5 +1,6 @@
 import ServiceGrid from "../../components/Services/ServiceGrid";
 import ProcessGrid from "../../components/Services/ProcessGrid";
+import TrainingPrograms from "../../components/Services/TrainingPrograms";
 import { useEffect } from "react";
 
 const ServicesPage = () => {
@@ -211,6 +212,7 @@ const ServicesPage = () => {
           </div>
 
           <ServiceGrid />
+          <TrainingPrograms />
           <ProcessGrid />
         </main>
 
