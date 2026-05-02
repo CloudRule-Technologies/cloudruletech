@@ -125,9 +125,9 @@ const ServiceCard = ({ title, caption, index }) => {
               transition-all duration-500
             "
           >
-            <span className="text-sm text-white/60 hover:text-white cursor-pointer">
+            {/* <span className="text-sm text-white/60 hover:text-white cursor-pointer">
               Learn more →
-            </span>
+            </span> */}
           </div>
         </div>
 
