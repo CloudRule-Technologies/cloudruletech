@@ -1,71 +1,71 @@
 import React from "react";
+import { HiOutlineLightBulb, HiOutlineShieldCheck, HiOutlineRocketLaunch } from "react-icons/hi2";
 
 const Feature = () => {
   const features = [
     {
       id: "01",
+      icon: <HiOutlineRocketLaunch className="w-8 h-8 text-blue-400" />,
       title: "Empowering technology",
       desc: "We build it right the first time using modern standards, ensuring your code remains clean and maintainable.",
     },
     {
       id: "02",
+      icon: <HiOutlineLightBulb className="w-8 h-8 text-indigo-400" />,
       title: "Dedicated Focus",
       desc: "You aren't just another ticket in a system. Your project gets our complete undivided attention.",
     },
     {
       id: "03",
+      icon: <HiOutlineShieldCheck className="w-8 h-8 text-purple-400" />,
       title: "Future-Proof Security",
       desc: "Zero-trust security models integrated into the foundation to protect your data from day one.",
     },
   ];
 
   return (
-    <section id="services" className="relative z-10 py-28 bg-slate-50 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section id="features" className="relative py-32 bg-[#030711] overflow-hidden">
+      {/* Subtle glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
         {/* section heading */}
-        <div
-          className="text-center mb-20 opacity-0 translate-y-6
-                     animate-[fadeInUp_0.9s_ease-out_forwards]"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Who We are?
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <h2 className="mb-6">
+            Why Choose <span className="text-gradient">CloudRule</span>?
           </h2>
-          <div className="h-1 w-2xs bg-slate-900 mx-auto rounded-full" />
+          <p className="text-slate-400 text-lg">
+            We combine technical excellence with a client-first approach to deliver 
+            software that doesn't just work, but scales and thrives.
+          </p>
         </div>
 
         {/* cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((item, index) => (
             <div
               key={item.id}
-              className="bg-white p-10 rounded-2xl border border-slate-100
-                         shadow-sm hover:shadow-xl hover:-translate-y-1
-                         transition-all duration-300
-                         opacity-0 translate-y-6
-                         animate-[fadeInUp_0.9s_ease-out_forwards]"
-              style={{ animationDelay: `${index * 150 + 200}ms` }}
+              className="glass p-10 rounded-3xl group hover:border-blue-500/50 transition-all duration-500 hover:-translate-y-2"
             >
-              <div className="text-sky-400 font-bold text-4xl opacity-40 mb-4">
-                {item.id}
+              <div className="mb-6 w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                {item.icon}
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
+              <h3 className="text-xl font-bold text-white mb-4">
                 {item.title}
               </h3>
-              <p className="text-slate-600 leading-relaxed">{item.desc}</p>
+              <p className="text-slate-400 leading-relaxed mb-6">
+                {item.desc}
+              </p>
+              <div className="text-sm font-mono text-slate-500 uppercase tracking-widest">
+                Feature {item.id}
+              </div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* same keyframes reuse */}
-      <style>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(24px) }
-          to { opacity: 1; transform: translateY(0) }
-        }
-      `}</style>
     </section>
   );
 };
 
 export default Feature;
+

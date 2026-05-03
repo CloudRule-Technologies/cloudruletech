@@ -1,42 +1,50 @@
 import React from "react";
+import { HiArrowRight } from "react-icons/hi2";
 
 const Cta = () => {
   return (
-    <section className="py-24 px-6">
+    <section className="py-32 px-6 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+      
       <div
-        className="max-w-5xl mx-auto bg-black/80 rounded-3xl p-10 md:p-16
-                   text-center text-white
-                   shadow-[0_20px_50px_rgba(0,0,0,0.25)]
-                   border border-white/10
-                   opacity-0 translate-y-6
-                   animate-[fadeInUp_0.9s_ease-out_forwards]"
+        className="max-w-6xl mx-auto glass rounded-[3rem] p-12 md:p-24
+                   text-center relative z-10 overflow-hidden"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-          Ready to set the rules?
+        {/* Animated background glow inside CTA */}
+        <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl animate-pulse-slow" />
+
+        <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight leading-tight">
+          Ready to <span className="text-gradient">Scale</span> Your <br className="hidden md:block" /> 
+          Digital Presence?
         </h2>
 
-        <p className="text-blue-200 text-lg mb-10 max-w-xl mx-auto">
-          Experience the power of infrastructure. Join the CloudRule network
-          today.
+        <p className="text-slate-400 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+          Join hundreds of forward-thinking businesses that trust CloudRule 
+          to build their digital foundation. Let's create something extraordinary together.
         </p>
 
-        <button
-          className="bg-white text-black px-10 py-4 rounded-full font-bold text-lg
-                     hover:bg-slate-100 transition-all duration-300
-                     hover:scale-105"
-        >
-          Build • Learn • Launch
-        </button>
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <button
+            className="px-10 py-5 bg-white text-black rounded-2xl font-bold text-xl
+                       hover:bg-blue-50 transition-all duration-300
+                       hover:scale-105 flex items-center gap-3 group shadow-2xl shadow-white/10"
+          >
+            Start Your Project
+            <HiArrowRight className="group-hover:translate-x-1 transition-transform" />
+          </button>
+          <button
+            className="px-10 py-5 glass text-white rounded-2xl font-bold text-xl
+                       hover:bg-white/10 transition-all duration-300"
+          >
+            Contact Sales
+          </button>
+        </div>
       </div>
-
-      <style>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(24px) }
-          to { opacity: 1; transform: translateY(0) }
-        }
-      `}</style>
     </section>
   );
 };
 
 export default Cta;
+
