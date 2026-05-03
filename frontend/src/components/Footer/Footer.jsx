@@ -56,8 +56,8 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              Empowering businesses with next-generation cloud and web solutions. 
-              We build the foundation for your digital success.
+              Empowering businesses with next-generation cloud and web
+              solutions. We build the foundation for your digital success.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => (
@@ -75,7 +75,9 @@ const Footer = () => {
           {/* Links */}
           {footerLinks.map((group, index) => (
             <div key={index}>
-              <h3 className="text-white font-bold mb-6 text-lg">{group.title}</h3>
+              <h3 className="text-white font-bold mb-6 text-lg">
+                {group.title}
+              </h3>
               <ul className="space-y-4">
                 {group.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
@@ -101,7 +103,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3 text-slate-400 text-sm">
                 <HiOutlinePhone className="w-5 h-5 text-blue-500" />
-                +91 86959 54966
+                +91 97913 94644
               </li>
               <li className="flex items-center gap-3 text-slate-400 text-sm">
                 <HiOutlineMapPin className="w-5 h-5 text-blue-500" />
@@ -114,11 +116,16 @@ const Footer = () => {
         {/* Copyright */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-sm">
-            © {new Date().getFullYear()} CloudRule Technology. All Rights Reserved.
+            © {new Date().getFullYear()} CloudRule Technology. All Rights
+            Reserved.
           </p>
           <div className="flex gap-6">
-            <button className="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</button>
-            <button className="text-slate-500 hover:text-white text-xs transition-colors">Terms of Service</button>
+            <button className="text-slate-500 hover:text-white text-xs transition-colors">
+              Privacy Policy
+            </button>
+            <button className="text-slate-500 hover:text-white text-xs transition-colors">
+              Terms of Service
+            </button>
           </div>
         </div>
       </div>
