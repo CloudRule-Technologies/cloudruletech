@@ -32,7 +32,7 @@ const App = () => {
         </Routes>
       </main>
       <Footer />
-      <TawkTo />
+      {/* <TawkTo /> */}
     </div>
   );
 };

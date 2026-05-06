@@ -69,7 +69,7 @@ const ServiceCard = ({ title, caption, index }) => {
             </div>
 
             {/* Arrow */}
-            <div
+            {/* <div
               className="
                 opacity-0 group-hover:opacity-100
                 translate-x-4 translate-y-4
@@ -91,21 +91,11 @@ const ServiceCard = ({ title, caption, index }) => {
                   d="M7 17L17 7M17 7H7M17 7V17"
                 />
               </svg>
-            </div>
+            </div> */}
           </div>
 
           {/* Index */}
-          <div
-            className="
-              absolute -top-3 -left-3
-              text-8xl font-black
-              text-white/[0.10] group-hover:text-white/[0.20]
-              transition-all duration-700
-              select-none
-            "
-          >
-            {String(index + 1).padStart(2, "0")}
-          </div>
+    
         </div>
 
         {/* Content */}
