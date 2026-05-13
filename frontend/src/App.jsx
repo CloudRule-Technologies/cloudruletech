@@ -8,6 +8,7 @@ import Home from "./pages/Home/Home";
 import ServicesPage from "./pages/Services/ServicesPage";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -18,18 +19,22 @@ const ScrollToTop = () => {
 };
 
 const App = () => {
+  const location = useLocation();
+
   return (
-    <div className="min-h-screen flex flex-col bg-[#030711]">
+    <div className="min-h-screen flex flex-col bg-black">
       <ScrollToTop />
       <Navbar />
-      <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/career" element={<CareerPage/>} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+      <main className="flex-grow relative overflow-hidden">
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home/>} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/career" element={<CareerPage/>} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </AnimatePresence>
       </main>
       <Footer />
       {/* <TawkTo /> */}

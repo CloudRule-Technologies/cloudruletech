@@ -7,12 +7,29 @@ import {
   FaUsers,
   FaShieldAlt,
 } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const CareerPage = () => {
   useEffect(() => {
     document.title = "Careers | CloudRule";
     window.scrollTo(0, 0);
   }, []);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 }
+  };
 
   const perks = [
     {
@@ -38,9 +55,15 @@ const CareerPage = () => {
   ];
 
   return (
-    <div className="relative z-10 min-h-screen pt-32 pb-20 px-6">
-      {/* Hero Section - Patterned after Services Page for 'Proper' Design */}
-      <div className="container mx-auto text-center mb-32 animate-fade-in-up">
+    <motion.div 
+      initial="hidden"
+      animate="visible"
+      exit={{ opacity: 0 }}
+      variants={containerVariants}
+      className="relative z-10 min-h-screen pt-32 pb-20 px-6 bg-black"
+    >
+      {/* Hero Section */}
+      <motion.div variants={itemVariants} className="container mx-auto text-center mb-32">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10">
           <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
@@ -63,37 +86,39 @@ const CareerPage = () => {
         </div>
 
         {/* Subheading */}
-        <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-light">
+        <p className="text-lg md:text-xl text-white font-bold max-w-2xl mx-auto leading-relaxed bg-white/5 py-3 px-6 rounded-2xl border border-white/10 backdrop-blur-sm">
           We’re not just building software; we’re building careers. Join a mission-driven team where your ideas shape the digital foundations of tomorrow.
         </p>
-      </div>
+      </motion.div>
 
       <div className="max-w-7xl mx-auto space-y-32">
         
         {/* Perks Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {perks.map((perk, index) => (
-            <div 
+            <motion.div 
               key={index}
-              className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-all duration-500 group"
+              variants={itemVariants}
+              whileHover={{ y: -5, borderColor: "rgba(255,255,255,0.1)" }}
+              className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 transition-all duration-500 group"
             >
               <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition duration-500">
                 {perk.icon}
               </div>
               <h3 className="text-xl font-bold text-white mb-3">{perk.title}</h3>
               <p className="text-slate-500 text-sm leading-relaxed">{perk.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Openings Title */}
-        <div className="text-center space-y-4">
+        <motion.div variants={itemVariants} className="text-center space-y-4">
           <h2 className="text-4xl md:text-5xl font-display font-bold">Open Positions</h2>
           <p className="text-slate-500 uppercase tracking-widest text-xs">Always looking for talent</p>
-        </div>
+        </motion.div>
 
-        {/* Job Card - Proper Professional Layout */}
-        <div className="relative group overflow-hidden rounded-[40px]">
+        {/* Job Card */}
+        <motion.div variants={itemVariants} className="relative group overflow-hidden rounded-[40px]">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
           
           <div className="relative p-1 md:p-[2px] bg-gradient-to-b from-white/20 to-transparent rounded-[40px]">
@@ -121,12 +146,14 @@ const CareerPage = () => {
                   </p>
 
                   <div className="pt-4">
-                    <a 
+                    <motion.a 
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                       href="mailto:careers@cloudrule.com"
-                      className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-black rounded-2xl hover:bg-blue-50 transition-all hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+                      className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-black rounded-2xl hover:bg-blue-50 transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)]"
                     >
                       Apply for this Position <FaRocket className="text-sm" />
-                    </a>
+                    </motion.a>
                   </div>
                 </div>
 
@@ -174,10 +201,10 @@ const CareerPage = () => {
 
             </div>
           </div>
-        </div>
+        </motion.div>
 
       </div>
-    </div>
+    </motion.div>
   );
 };
 

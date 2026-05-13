@@ -1,3 +1,4 @@
+
 const ServiceCard = ({ title, caption, index }) => {
   return (
     <div
@@ -100,11 +101,11 @@ const ServiceCard = ({ title, caption, index }) => {
 
         {/* Content */}
         <div className="relative z-10 space-y-4">
-          <h3 className="text-2xl md:text-3xl font-bold text-white">{title}</h3>
+          <h3 className="text-2xl md:text-3xl font-black text-white">{title}</h3>
 
           <div className="h-[2px] w-12 bg-gradient-to-r from-white/50 to-transparent transition-all group-hover:w-20" />
 
-          <p className="text-white/50 group-hover:text-white/70 transition">
+          <p className="text-slate-200 font-semibold group-hover:text-white transition">
             {caption}
           </p>
 

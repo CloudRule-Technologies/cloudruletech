@@ -17,7 +17,7 @@ const programs = [
   },
   {
     title: "For College Students",
-    subtitle: "1-Week Certificate Courses",
+    subtitle: "ONE-WEEK CERTIFICATE COURSE",
     desc: "Crafted to give college students a strong foundation in trending and in-demand technologies. These programs include practical sessions, real-time examples, and mini projects that enhance both technical and problem-solving skills.",
     focus: "Gaining valuable exposure, industry-relevant knowledge, and a certificate that adds weight to academic profiles and career opportunities.",
     icon: (
@@ -121,8 +121,8 @@ const TrainingPrograms = () => {
                   </div>
                   <div className={`
                     px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest
-                    bg-white/5 border border-white/10 text-white/60
-                    group-hover:border-white/20 group-hover:text-white
+                    bg-white/10 border border-white/20 text-white
+                    group-hover:bg-blue-500 group-hover:border-blue-400
                     transition-all duration-500
                   `}>
                     Program
@@ -131,22 +131,22 @@ const TrainingPrograms = () => {
 
                 {/* Text Content */}
                 <div className="mb-8">
-                  <h4 className="text-white/60 text-sm font-bold uppercase tracking-widest mb-3">
+                  <h4 className="text-blue-400 text-sm font-bold uppercase tracking-widest mb-3">
                     {program.title}
                   </h4>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 leading-tight group-hover:tracking-tight transition-all duration-500">
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-6 leading-tight group-hover:tracking-tight transition-all duration-500">
                     {program.subtitle}
                   </h3>
                   <div className="h-px w-12 bg-white/20 mb-6 group-hover:w-24 transition-all duration-700" />
-                  <p className="text-white/50 leading-relaxed mb-6 group-hover:text-white/70 transition-colors duration-500">
+                  <p className="text-slate-200 leading-relaxed mb-6 group-hover:text-white transition-colors duration-500 font-medium">
                     {program.desc}
                   </p>
                 </div>
 
                 {/* Focus Area */}
-                <div className="mt-auto pt-6 border-t border-white/5 flex items-center gap-4">
+                <div className="mt-auto pt-6 border-t border-white/10 flex items-center gap-4">
                   <div className={`w-1.5 h-1.5 rounded-full ${program.accent} animate-pulse`} />
-                  <p className="text-xs font-medium text-white/40 italic">
+                  <p className="text-xs font-semibold text-white/70">
                     {program.focus}
                   </p>
                 </div>

@@ -4,6 +4,7 @@ import Cta from "../../components/Cta/Cta";
 import LogoCloud from "../../components/LogoCloud/LogoCloud";
 import Stats from "../../components/Stats/Stats";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 const Home = () => {
   useEffect(() => {
@@ -11,13 +12,20 @@ const Home = () => {
   }, []);
 
   return (
-    <div data-testid="home-page" className="bg-[#030711]">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      data-testid="home-page" 
+      className="bg-black"
+    >
       <Hero />
       {/* <LogoCloud /> */}
       <Feature />
       <Stats />
       <Cta />
-    </div>
+    </motion.div>
   );
 };
 

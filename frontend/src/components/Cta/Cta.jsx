@@ -1,15 +1,20 @@
 import React from "react";
 import { HiArrowRight } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Cta = () => {
   const navigate = useNavigate();
   return (
-    <section className="py-32 px-6 relative overflow-hidden">
+    <section className="py-32 px-6 relative overflow-hidden bg-black">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
         className="max-w-6xl mx-auto glass rounded-[3rem] p-12 md:p-24
                    text-center relative z-10 overflow-hidden"
       >
@@ -47,7 +52,7 @@ const Cta = () => {
             Contact us
           </button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

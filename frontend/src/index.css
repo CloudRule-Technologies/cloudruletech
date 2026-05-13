@@ -15,7 +15,7 @@
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: -0.01em;
     line-height: 1.6;
-    @apply bg-[#030711] text-slate-300;
+    @apply bg-black text-slate-300 selection:bg-blue-500/30 selection:text-white;
   }
 
   h1, h2, h3, h4, h5, h6 {

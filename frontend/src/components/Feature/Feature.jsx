@@ -1,5 +1,6 @@
 import React from "react";
 import { HiOutlineLightBulb, HiOutlineShieldCheck, HiOutlineRocketLaunch } from "react-icons/hi2";
+import { motion } from "framer-motion";
 
 const Feature = () => {
   const features = [
@@ -24,7 +25,7 @@ const Feature = () => {
   ];
 
   return (
-    <section id="features" className="relative py-32 bg-[#030711] overflow-hidden">
+    <section id="features" className="relative py-32 bg-black overflow-hidden">
       {/* Subtle glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -43,9 +44,14 @@ const Feature = () => {
         {/* cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((item, index) => (
-            <div
+            <motion.div
               key={item.id}
-              className="glass p-10 rounded-3xl group hover:border-blue-500/50 transition-all duration-500 hover:-translate-y-2"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2 }}
+              whileHover={{ y: -10, borderColor: "rgba(59,130,246,0.5)" }}
+              className="glass p-10 rounded-3xl group transition-all duration-500"
             >
               <div className="mb-6 w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                 {item.icon}
@@ -59,7 +65,7 @@ const Feature = () => {
               <div className="text-sm font-mono text-slate-500 uppercase tracking-widest">
                 Feature {item.id}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
