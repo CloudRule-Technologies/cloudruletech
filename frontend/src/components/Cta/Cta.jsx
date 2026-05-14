@@ -8,7 +8,7 @@ const Cta = () => {
   return (
     <section className="py-32 px-6 relative overflow-hidden bg-black">
       {/* Background decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
 
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
@@ -19,13 +19,13 @@ const Cta = () => {
                    text-center relative z-10 overflow-hidden"
       >
         {/* Animated background glow inside CTA */}
-        <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-pulse-slow" />
 
         <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight leading-tight">
-          Ready to <span className="text-gradient">Scale</span> Your{" "}
+          Transform Your Ideas Into{" "}
           <br className="hidden md:block" />
-          Digital Presence?
+          <span className="text-gradient">Digital Reality</span>
         </h2>
 
         <p className="text-slate-400 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">

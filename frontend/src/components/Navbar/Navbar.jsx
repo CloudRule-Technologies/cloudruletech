@@ -48,15 +48,15 @@ const Navbar = () => {
             <img
               src="/CR_logo2.png"
               alt="logo"
-              className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-white/20 group-hover:border-blue-500/50 transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.2)]"
+              className="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-white/20 group-hover:border-white/50 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
             />
-            <div className="absolute inset-0 rounded-full bg-blue-500/30 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 rounded-full bg-white/10 blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
           <div>
             <h1 className="text-xl font-bold tracking-tighter leading-none">
               CLOUDRULE
             </h1>
-            <p className="text-[10px] font-bold tracking-[0.2em] text-blue-500/80 uppercase">
+            <p className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase">
               Technologies
             </p>
           </div>
@@ -85,7 +85,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(255,255,255,0.2)" }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate("/contact")}
-              className="px-6 py-2.5 bg-white text-black rounded-xl text-sm font-bold hover:bg-blue-50 transition-all shadow-lg shadow-white/5"
+              className="px-6 py-2.5 bg-white text-black rounded-xl text-sm font-bold hover:bg-gray-200 transition-all shadow-lg shadow-white/5"
             >
               Get Started
             </motion.button>
