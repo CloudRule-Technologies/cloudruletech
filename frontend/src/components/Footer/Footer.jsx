@@ -56,12 +56,12 @@ const Footer = () => {
                 <h1 className="text-xl font-bold tracking-tighter leading-none text-white">
                   CLOUDRULE
                 </h1>
-                <p className="text-[10px] font-bold tracking-[0.2em] text-blue-500 uppercase">
+                <p className="text-[10px] font-bold tracking-[0.2em] text-white uppercase">
                   Technologies
                 </p>
               </div>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
+            <p className="text-white text-sm leading-relaxed max-w-xs">
               Architecting the digital future with state-of-the-art cloud ecosystems 
               and high-performance web solutions.
             </p>
@@ -70,15 +70,15 @@ const Footer = () => {
                 <motion.a
                   key={index}
                   href={social.url}
-                  whileHover={{ y: -3, color: "#fff", borderColor: "rgba(59,130,246,0.5)" }}
-                  className="w-10 h-10 rounded-xl glass flex items-center justify-center text-slate-400 transition-all border border-transparent"
+                  whileHover={{ y: -3, color: "#fff", borderColor: "rgba(255,255,255,0.5)" }}
+                  className="w-10 h-10 rounded-xl glass flex items-center justify-center text-white transition-all border border-transparent"
                 >
                   {social.icon}
                 </motion.a>
               ))}
             </div>
           </motion.div>
-
+ 
           {/* Links */}
           {footerLinks.map((group, index) => (
             <motion.div 
@@ -96,7 +96,7 @@ const Footer = () => {
                   <li key={linkIndex}>
                     <button
                       onClick={() => navigate(link.path)}
-                      className="text-slate-400 hover:text-white transition-colors text-sm"
+                      className="text-slate-300 hover:text-white transition-colors text-sm"
                     >
                       {link.name}
                     </button>
@@ -105,7 +105,7 @@ const Footer = () => {
               </ul>
             </motion.div>
           ))}
-
+ 
           {/* Contact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -115,16 +115,16 @@ const Footer = () => {
           >
             <h3 className="text-white font-bold mb-6 text-lg">Get in Touch</h3>
             <ul className="space-y-4">
-              <li className="flex items-center gap-3 text-slate-400 text-sm">
-                <HiOutlineEnvelope className="w-5 h-5 text-blue-500" />
+              <li className="flex items-center gap-3 text-white text-sm">
+                <HiOutlineEnvelope className="w-5 h-5 text-white/70" />
                 cloudruletechnologies@gmail.com
               </li>
-              <li className="flex items-center gap-3 text-slate-400 text-sm">
-                <HiOutlinePhone className="w-5 h-5 text-blue-500" />
+              <li className="flex items-center gap-3 text-white text-sm">
+                <HiOutlinePhone className="w-5 h-5 text-white/70" />
                 +91 97913 94644
               </li>
-              <li className="flex items-center gap-3 text-slate-400 text-sm">
-                <HiOutlineMapPin className="w-5 h-5 text-blue-500" />
+              <li className="flex items-center gap-3 text-white text-sm">
+                <HiOutlineMapPin className="w-5 h-5 text-white/70" />
                 India
               </li>
             </ul>

@@ -596,7 +596,7 @@ const ServiceCard = ({ svc, index }) => {
           >
             {svc.label}
           </motion.h3>
-          <p className="text-gray-400 text-sm leading-relaxed flex-1">{svc.desc}</p>
+          <p className="text-white text-sm leading-relaxed flex-1">{svc.desc}</p>
 
           {/* Animated bottom line indicator */}
           <div className="overflow-hidden h-px mt-2">
@@ -617,7 +617,7 @@ const ServiceCard = ({ svc, index }) => {
    MAIN SECTION
 ══════════════════════════════════════════ */
 const Feature = () => (
-  <section id="features" className="relative pt-4 pb-24 lg:py-32 bg-black overflow-hidden">
+  <section id="features" className="relative pt-4 pb-8 lg:pt-16 lg:pb-10 bg-black overflow-hidden">
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-white/[0.025] rounded-full blur-[160px] pointer-events-none" />
 
     <div className="container mx-auto px-6 relative z-10">
@@ -627,8 +627,8 @@ const Feature = () => (
         className="text-center max-w-3xl mx-auto mb-12 lg:mb-20"
       >
         <h2 className="mb-6">Welcome to <span className="text-gradient">CloudRule</span></h2>
-        <p className="text-gray-400 text-lg">
-          We build responsive websites, powerful mobile apps, and scalable software solutions for startups and businesses.
+        <p className="text-white text-lg">
+         We build responsive websites, powerful mobile apps, and scalable software solutions for startups and businesses.
         </p>
       </motion.div>
 

@@ -1,5 +1,51 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+
+/* ── Lightweight CountUp component ── */
+const CountUp = ({ value, duration = 2.0 }) => {
+  const [displayValue, setDisplayValue] = useState("0");
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px 0px" });
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    const numMatch = value.match(/^([\d.]+)(.*)$/);
+    if (!numMatch) {
+      setDisplayValue(value);
+      return;
+    }
+
+    const targetNum = parseFloat(numMatch[1]);
+    const suffix = numMatch[2] || "";
+    const isDecimal = numMatch[1].includes(".");
+    const decimals = isDecimal ? numMatch[1].split(".")[1].length : 0;
+
+    let start = 0;
+    const end = targetNum;
+    
+    let startTime = null;
+
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+      
+      // Easing: easeOutExpo
+      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const current = start + (end - start) * easeProgress;
+
+      setDisplayValue(current.toFixed(decimals) + suffix);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [value, duration, isInView]);
+
+  return <span ref={ref}>{displayValue}</span>;
+};
 
 /* ── Single stat with hover circle animation ── */
 const StatItem = ({ stat, index }) => {
@@ -85,7 +131,7 @@ const StatItem = ({ stat, index }) => {
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
           <div className="text-3xl md:text-4xl font-black text-white leading-none tracking-tight">
-            {stat.value}
+            <CountUp value={stat.value} />
             <span className="text-gray-300">{stat.suffix}</span>
           </div>
         </motion.div>
@@ -122,7 +168,7 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-20 bg-black border-y border-white/5 overflow-hidden">
+    <section className="py-10 bg-black border-y border-white/5 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
           {stats.map((stat, index) => (

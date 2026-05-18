@@ -56,7 +56,7 @@ const Navbar = () => {
             <h1 className="text-xl font-bold tracking-tighter leading-none">
               CLOUDRULE
             </h1>
-            <p className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase">
+            <p className="text-[10px] font-bold tracking-[0.2em] text-white uppercase">
               Technologies
             </p>
           </div>
