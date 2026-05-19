@@ -51,8 +51,8 @@ const AboutUs = () => {
   ];
 
   const headTeam = [
-    { role: "Chief Executive Officer", name: "Sathya Priya" },
-    { role: "Director", name: "Karthikeyan" },
+    { role: "Chief Executive Officer", name: "Sathya Priya Murugan" },
+    { role: "Director", name: "Karthikeyan Thavamurugan" },
   ];
 
   const techTeam = [
@@ -111,7 +111,7 @@ const AboutUs = () => {
             <h2 className="text-4xl md:text-5xl font-display font-bold text-white tracking-tight">
               Cloudrule Technology
             </h2>
-            <p className="text-lg md:text-xl text-slate-400 leading-relaxed font-light">
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light">
               Cloudrule Technology Private Limited is a technology-driven company
               delivering innovative IT solutions and scalable digital platforms.
               We empower businesses and talent through cutting-edge technology
@@ -127,7 +127,7 @@ const AboutUs = () => {
               <span className="text-2xl">🎯</span>
             </div>
             <h3 className="text-3xl font-display font-bold">Our Mission</h3>
-            <p className="text-slate-400 text-lg leading-relaxed">
+            <p className="text-white/80 text-lg leading-relaxed">
               To provide reliable and scalable IT solutions, empower students with
               industry-relevant skills through hands-on learning, and bridge the gap
               between academia and industry while building long-term strategic
@@ -139,7 +139,7 @@ const AboutUs = () => {
               <span className="text-2xl">👁️</span>
             </div>
             <h3 className="text-3xl font-display font-bold">Our Vision</h3>
-            <p className="text-slate-400 text-lg leading-relaxed">
+            <p className="text-white/80 text-lg leading-relaxed">
               To become a trusted technology partner by driving digital
               transformation for businesses and educational institutions while
               nurturing future-ready talent through practical learning and
@@ -152,7 +152,7 @@ const AboutUs = () => {
         <div className="space-y-12">
           <motion.div variants={itemVariants} className="text-center space-y-4">
             <h2 className="text-4xl md:text-5xl font-display font-bold">What We Do</h2>
-            <p className="text-slate-500 max-w-2xl mx-auto">Specialized services crafted for excellence and innovation.</p>
+            <p className="text-white/80 max-w-2xl mx-auto">Specialized services crafted for excellence and innovation.</p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
@@ -163,7 +163,7 @@ const AboutUs = () => {
                 className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 transition-all duration-500"
               >
                 <h3 className="text-xl font-bold mb-4 text-white/90">{service.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{service.desc}</p>
+                <p className="text-white/80 text-sm leading-relaxed">{service.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -173,7 +173,7 @@ const AboutUs = () => {
         <div className="space-y-12">
           <motion.div variants={itemVariants} className="text-center">
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">Leadership</h2>
-            <p className="text-slate-500">The visionaries behind CloudRule.</p>
+            <p className="text-white/80">The visionaries behind CloudRule.</p>
           </motion.div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {headTeam.map((member, index) => (
@@ -188,7 +188,7 @@ const AboutUs = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-white">{member.name}</h4>
-                  <p className="text-slate-500 uppercase tracking-widest text-[10px] font-bold mt-1">{member.role}</p>
+                  <p className="text-white/80 uppercase tracking-widest text-[10px] font-bold mt-1">{member.role}</p>
                 </div>
               </motion.div>
             ))}
@@ -199,7 +199,7 @@ const AboutUs = () => {
         <div className="space-y-12 pb-20">
           <motion.div variants={itemVariants} className="text-center">
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">Technical Team</h2>
-            <p className="text-slate-500">Experts driving our technological innovation.</p>
+            <p className="text-white/80">Experts driving our technological innovation.</p>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {techTeam.map((member, index) => (
@@ -219,7 +219,7 @@ const AboutUs = () => {
                 </div>
                 <div className="p-8 text-center space-y-2">
                   <h4 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors duration-500">{member.name}</h4>
-                  <p className="text-slate-500 text-sm tracking-wide">{member.role}</p>
+                  <p className="text-white/90 text-sm tracking-wide">{member.role}</p>
                 </div>
               </motion.div>
             ))}
