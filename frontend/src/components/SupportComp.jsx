@@ -125,7 +125,7 @@ const SupportComp = () => {
             {/* Google Map Mini */}
             <motion.div 
               whileHover={{ scale: 1.02 }}
-              className="glass p-2 rounded-3xl border-white/10 overflow-hidden h-64 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+              className="glass p-2 rounded-3xl border-white/10 overflow-hidden h-64 "
             >
               <iframe
                 src={mapUrl}
