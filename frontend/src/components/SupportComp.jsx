@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { HiOutlineEnvelope, HiOutlineUser, HiOutlineChatBubbleLeftRight, HiOutlinePhone, HiOutlineMapPin } from "react-icons/hi2";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -6,10 +7,18 @@ import { motion } from "framer-motion";
 
 const SupportComp = () => {
   const [res, setRes] = useState("");
+  const location = useLocation();
+  const [messageText, setMessageText] = useState("");
 
   useEffect(() => {
     document.title = "Contact | CloudRule";
   }, []);
+
+  useEffect(() => {
+    if (location.state && location.state.message) {
+      setMessageText(location.state.message);
+    }
+  }, [location.state]);
 
   const handleSub = async (e) => {
     e.preventDefault();
@@ -27,6 +36,7 @@ const SupportComp = () => {
       if (d.success) {
         toast.success("Sent!");
         setRes("");
+        setMessageText("");
         e.target.reset();
       } else {
         toast.error("Failed");
@@ -182,6 +192,8 @@ const SupportComp = () => {
                       name="message"
                       required
                       placeholder="How can we help you?"
+                      value={messageText}
+                      onChange={(e) => setMessageText(e.target.value)}
                       className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 h-40 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all resize-none"
                     />
                   </div>

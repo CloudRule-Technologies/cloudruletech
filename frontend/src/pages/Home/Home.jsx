@@ -3,6 +3,7 @@ import Feature from "../../components/Feature/Feature";
 import Cta from "../../components/Cta/Cta";
 import LogoCloud from "../../components/LogoCloud/LogoCloud";
 import Stats from "../../components/Stats/Stats";
+import Internship from "../../components/Internship/intern";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 
@@ -24,6 +25,7 @@ const Home = () => {
       {/* <LogoCloud /> */}
       <Feature />
       <Stats />
+      <Internship />
       <Cta />
     </motion.div>
   );
