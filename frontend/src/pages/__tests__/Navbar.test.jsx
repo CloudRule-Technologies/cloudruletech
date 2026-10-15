@@ -14,7 +14,7 @@ describe("Navbar Component", () => {
         <Navbar />
       </HashRouter>,
     );
-    expect(screen.getByText(/C L O U D R U L E/i)).toBeInTheDocument();
+    expect(screen.getByText(/CLOUDRULE/i)).toBeInTheDocument();
   });
 
   it("renders nav links", () => {

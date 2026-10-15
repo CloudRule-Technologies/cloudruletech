@@ -84,10 +84,10 @@ const Navbar = () => {
             <motion.button 
               whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(255,255,255,0.2)" }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate("/contact")}
-              className="px-6 py-2.5 bg-white text-black rounded-xl text-sm font-bold hover:bg-gray-200 transition-all shadow-lg shadow-white/5"
+              onClick={() => navigate("/register")}
+              className="px-6 py-2.5 bg-white text-black rounded-xl text-sm font-bold hover:bg-gray-200 transition-all shadow-lg shadow-white/5 cursor-pointer"
             >
-              Get Started
+              Register
             </motion.button>
           </li>
         </ul>
@@ -97,6 +97,7 @@ const Navbar = () => {
           onClick={() => setOpen(!open)}
           className="md:hidden p-2 text-white glass rounded-lg"
           aria-label="toggle menu"
+          data-testid="mobile-menu-toggle"
         >
           {open ? <HiXMark className="w-6 h-6" /> : <HiBars3 className="w-6 h-6" />}
         </button>
@@ -104,8 +105,9 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
+        data-testid="mobile-menu"
         className={`md:hidden absolute top-full left-0 w-full bg-[#030711] border-b border-white/10 transition-all duration-300 overflow-hidden ${
-          open ? "max-h-[400px] py-6" : "max-h-0 py-0"
+          open ? "max-h-[450px] py-6" : "max-h-0 py-0"
         }`}
       >
         <ul className="flex flex-col gap-2 px-6">
@@ -132,6 +134,22 @@ const Navbar = () => {
               </button>
             </motion.li>
           ))}
+          <motion.li
+            initial={{ opacity: 0, x: -20 }}
+            animate={open ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.3 }}
+            className="pt-2"
+          >
+            <button
+              onClick={() => {
+                setOpen(false);
+                navigate("/register");
+              }}
+              className="w-full py-3 bg-white text-black rounded-xl text-center font-bold text-base hover:bg-gray-200 transition-all shadow-lg"
+            >
+              Register
+            </button>
+          </motion.li>
         </ul>
       </div>
     </nav>
