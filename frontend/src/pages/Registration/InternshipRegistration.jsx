@@ -206,18 +206,57 @@ const InternshipRegistration = () => {
     }
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      // 1. Submit to SheetMonkey (Stores directly into Google Sheets / Excel)
+      const sheetPromise = fetch("https://api.sheetmonkey.io/form/unWWrkGrkpPSDT6bZ4z61h", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          "Full Name": formData.fullName.trim(),
+          "Email Address": formData.email.trim(),
+          "Mobile Number": formData.mobile.trim(),
+          "College Name": formData.collegeName.trim(),
+          "Degree / Department": formData.degreeDept.trim(),
+          "Current Year": formData.currentYear,
+          "Internship Domain": resolvedDomain,
+          "Duration": formData.duration,
+          "Mode": formData.mode,
+          "Additional Notes": formData.notes ? formData.notes.trim() : "None",
+          "Submission Date": new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+        }),
+      });
+
+      // 2. Also send to Web3Forms for Email alert
+      const web3Promise = fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: fd,
       });
 
-      const data = await response.json();
+      const [sheetResult, web3Result] = await Promise.allSettled([
+        sheetPromise,
+        web3Promise,
+      ]);
 
-      if (data.success) {
+      const isSheetOk =
+        sheetResult.status === "fulfilled" && sheetResult.value.ok;
+
+      let isWeb3Ok = false;
+      if (web3Result.status === "fulfilled") {
+        try {
+          const web3Json = await web3Result.value.clone().json();
+          isWeb3Ok = Boolean(web3Json.success);
+        } catch {
+          isWeb3Ok = web3Result.value.ok;
+        }
+      }
+
+      if (isSheetOk || isWeb3Ok) {
         toast.success("Application submitted successfully!");
         setSubmitted(true);
       } else {
-        toast.error(data.message || "Failed to submit application. Please try again.");
+        toast.error("Failed to submit application. Please try again.");
       }
     } catch (error) {
       toast.error("Network error. Please try again or contact us directly.");
