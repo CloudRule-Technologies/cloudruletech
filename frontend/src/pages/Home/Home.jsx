@@ -1,10 +1,12 @@
 import Hero from "../../components/Hero/Hero";
 import Feature from "../../components/Feature/Feature";
+import Clients from "../../components/Clients/Clients";
 import Cta from "../../components/Cta/Cta";
 import LogoCloud from "../../components/LogoCloud/LogoCloud";
 import Stats from "../../components/Stats/Stats";
 import Internship from "../../components/Internship/intern";
 import { useEffect } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 const Home = () => {
@@ -24,6 +26,7 @@ const Home = () => {
       <Hero />
       {/* <LogoCloud /> */}
       <Feature />
+      <Clients />
       <Stats />
       <Internship />
       <Cta />
@@ -32,4 +35,3 @@ const Home = () => {
 };
 
 export default Home;
-

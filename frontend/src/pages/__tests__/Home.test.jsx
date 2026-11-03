@@ -10,6 +10,10 @@ vi.mock("../../components/Feature/Feature", () => ({
   default: () => <div data-testid="feature-section">Feature</div>,
 }));
 
+vi.mock("../../components/Clients/Clients", () => ({
+  default: () => <div data-testid="clients-section">Clients</div>,
+}));
+
 vi.mock("../../components/Cta/Cta", () => ({
   default: () => <div data-testid="cta-section">CTA</div>,
 }));
@@ -28,6 +32,11 @@ describe("Home Page", () => {
   it("renders Feature section", () => {
     render(<Home />);
     expect(screen.getByTestId("feature-section")).toBeInTheDocument();
+  });
+
+  it("renders Clients section", () => {
+    render(<Home />);
+    expect(screen.getByTestId("clients-section")).toBeInTheDocument();
   });
 
   it("renders CTA section", () => {
