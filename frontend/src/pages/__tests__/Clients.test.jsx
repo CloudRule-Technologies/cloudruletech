@@ -40,4 +40,18 @@ describe("Clients Component", () => {
     const vendhanImg = screen.getByAltText(/Vendhan IAS Academy Banner/i);
     expect(vendhanImg).toBeInTheDocument();
   });
+
+  it("renders Grandma's Care card with direct link and banner", () => {
+    render(<Clients />);
+    const grandmasTitle = screen.getByText("Grandma's Care");
+    expect(grandmasTitle).toBeInTheDocument();
+
+    const grandmasLink = screen.getByRole("link", { name: /Grandma's Care/i });
+    expect(grandmasLink).toHaveAttribute("href", "https://www.grandmacare.in");
+    expect(grandmasLink).toHaveAttribute("target", "_blank");
+    expect(grandmasLink).toHaveAttribute("rel", "noopener noreferrer");
+
+    const grandmasImg = screen.getByAltText(/Grandma's Care Banner/i);
+    expect(grandmasImg).toBeInTheDocument();
+  });
 });
